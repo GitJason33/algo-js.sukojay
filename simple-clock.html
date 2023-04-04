@@ -1,0 +1,35 @@
+<!-- goal: make a simple working clock that shows the current date and time marching -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clock</title>
+</head>
+<body>
+  <h1>Time right now: </h1>
+  <h1 id="clock"></h1>
+  
+  <script>
+    let now = new Date();
+    const timeContain = document.querySelector("#clock");
+    timeContain.innerHTML = formatDate(now);
+
+    setInterval(() => {
+      now.setSeconds(now.getSeconds() + 1);
+      timeContain.innerHTML = formatDate(now);
+    }, 1000);
+    
+    function formatDate(date){
+      const checkIfSmall = (number) => number < 10 ? '0' + number : number;
+
+      let hour = checkIfSmall(date.getHours());
+      let minute = checkIfSmall(date.getMinutes());
+      let second = checkIfSmall(date.getSeconds());
+
+      return `${hour}:${minute}:${second}`;
+    }
+  </script>
+</body>
+</html>

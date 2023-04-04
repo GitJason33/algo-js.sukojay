@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation on click</title>
+  <style>
+    #startBtn{
+      display: block;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    #container{
+      background: rgb(31, 30, 30);
+      height: 500px;
+      width: 500px;
+      border: 2px solid crimson;
+      position: relative;
+    }
+    #box{
+      background-color: crimson;
+      width: 100px;
+      height: 10px;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <button id="startBtn">Start animation</button>
+
+  <div id="container">
+    <div id="box"></div>
+  </div>
+  
+  <script>
+    const btn = document.querySelector("#startBtn");
+    const box = document.querySelector("#box");
+    btn.addEventListener("click", startMoving);
+
+    let speedX = 0.1, speedY = 0.25, speedRotate = 6;
+    function startMoving(){
+      // coordinates
+      let x = 0;
+      let y = 0;
+      let degree = 0;
+      const timer = setInterval(moveBox, 5)
+
+      function moveBox(){
+        x += speedX;
+        y += speedY;
+        degree += speedRotate;
+        // equation of max is: containerDimension - boxDimension (dimension is width or height)
+        if(x > 400 || y > 490){
+          clearInterval(timer);
+        }else{
+          box.style.transform = `rotateY(${degree}deg)`;
+          box.style.top = y + 'px';
+          box.style.left = x + 'px';
+        }
+      }
+    }
+  </script>
+</body>
+</html>

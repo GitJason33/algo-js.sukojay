@@ -1,0 +1,91 @@
+<!-- goal: move an element as a box using your keyboard -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>box moving</title>
+  <style>
+    *{ box-sizing: border-box; }
+    body{ 
+      margin: 0; 
+      padding: 0; 
+      overflow: hidden;
+      height: 100vh;
+    }
+    #container{
+      background: rgb(31, 30, 30);
+      height: 100%;
+      width: 100%;
+      border: 2px solid crimson;
+      position: relative;
+    }
+    #box{
+      background-color: crimson;
+      border: 1px solid black; /* cool blue: rgb(50, 200, 250)*/
+      width: 100px;
+      height: 100px;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="box"></div>
+  </div>
+
+  <script>
+    const box = document.querySelector("#box");
+    // specs
+    let containerBorder = 2;
+    let boxDimensions = 100; // it's a square
+    let boxBorder = 1;
+
+    // coordinates to keep track where the box is
+    let x = 0;
+    let y = 0; 
+    let speed = 10; // change the speed of the movement in pixels
+    window.addEventListener('keydown', moveBox);
+
+    function moveBox(event){
+      // updates the maximum dimensions in px depending on browser size
+      let max_x = window.innerWidth;
+      let max_y = window.innerHeight;
+
+      // max coordination is at: (updated each time)
+      // containerDimension - boxDimension - containerBorderWidth*2 - boxBorderWidth
+      let xBound = max_x - boxDimensions - containerBorder*2 - boxBorder;
+      let yBound = max_y - boxDimensions - containerBorder*2 - boxBorder; 
+
+      switch(event.key){
+        case "ArrowUp": 
+          y-= speed;
+          if(y < 0) y = 0;
+          box.style.top = y + 'px'; 
+          break;
+
+        case "ArrowDown": 
+          y+= speed;
+          if(y > yBound) y = yBound;
+          box.style.top = y + 'px'; 
+          break;
+
+        case "ArrowLeft": 
+          x-= speed;
+          if(x < 0) x = 0;
+          box.style.left = x + 'px'; 
+          break;
+
+        case "ArrowRight": 
+          x+= speed;
+          if(x > xBound) x = xBound;
+          box.style.left = x + 'px';
+          break;
+        default: break;
+      }
+    }
+  </script>
+</body>
+</html>

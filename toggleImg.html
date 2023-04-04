@@ -1,0 +1,33 @@
+<!-- goal: make an image toggable with a button (when clicked hidden or visible) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image toggler</title>
+</head>
+<body>
+
+  <button id="btn">Toggle</button>
+  <br/>
+  <img id="image" src="./javascript-icon.svg" style="display: none; width: 200px;"/>
+  <p id="info">Click on the button</p>
+  
+  <script>
+    const image = document.querySelector("#image");
+    const button = document.querySelector("#btn");
+
+    // function to show image and hide it
+    const toggleImage = () => {
+      if(image.style.display == "none")
+        image.style.display = 'block';
+      else
+        image.style.display = "none";
+    }
+    button.addEventListener("click", toggleImage);
+    // NOTE: to reserve space for the image, use visibility property hidden/visible
+  </script>
+</body>
+</html>
