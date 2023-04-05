@@ -1,5 +1,5 @@
 // goal is to find the minimum out of a list
-// difficulty: 1
+// difficulty: easy
 
 const getMax = (...numbers) => {
   let max = numbers[0];

@@ -1,5 +1,5 @@
 // goal is to calculate the power of a number using an algorithm, built in functions are restricted
-// difficulty: 1
+// difficulty: easy
 
 let base = 5;
 let exponent = 8;

@@ -1,5 +1,5 @@
 // goal is to find if a number is powered in a specific base
-// difficulty: 1
+// difficulty: easy
 let n = 16;
 let base = 2;
 

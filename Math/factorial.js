@@ -1,5 +1,5 @@
 // goal is to calculate the factorial of a number using an algorithm, not built in functions
-// difficulty: 0.5
+// difficulty: very easy
 
 let n = 9;
 
