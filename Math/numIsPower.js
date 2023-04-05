@@ -11,7 +11,7 @@ const isPower = (number, base) => {
     i /= base;
   
   // if final division gave 1, means that the number is indeed in this base
-  return i == 1 ? true : false;
+  return i === 1 ? true : false;
 }
 
 console.log(`is ${n} a power of ${base}? ` + isPower(n, base));
@@ -30,6 +30,6 @@ function whatPower(number, base){
   }
   
   // -1 means it's not a power 
-  return i == 1 ? exponent : -1;
+  return i === 1 ? exponent : -1;
 }
 console.log(`on what power is ${n} for ${base}? ` + whatPower(n, base));
