@@ -23,6 +23,7 @@ let second = oneDayTime % 60;
 // millis is the leftover of the time in millis before conversion to seconds
 let milli = timeInMs % 1000;
 
+
 // let's add AM_PM system
 function AMorPM(){
   // check if it's midnight
@@ -31,9 +32,8 @@ function AMorPM(){
     return "AM";
   }
   // check if it's day hours
-  else if(hour < 12){
-    return "AM";
-  }
+  else if(hour < 12) return "AM";
+
   // else it's afternoon, night hours
   else{
     // mid-day
@@ -51,6 +51,8 @@ function AMorPM(){
 // let's modify it to be with days as well (day of year, 365 is max)
 // first, know that for every 86_400 seconds, there is 1 day
 let day = Math.floor(timeInSec / dayInSec);
+
+
 
 function displayTime(){
   let am_pm = AMorPM();
