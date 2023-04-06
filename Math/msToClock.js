@@ -2,14 +2,14 @@
 // difficulty: easy +
 
 // input
-let timeInMs = 123_456;
+let timeInMs = 4_000_000;
 
 // calculations: ms to sec, day to sec
 const dayInSec = 86_400;
-let timeInSec = timeInMs / 1000;
+let timeInSec = Math.floor(timeInMs / 1000);
 
 // exclude days off the clock to calculate the little ones first
-let oneDayTime = timeInMs % dayInSec; // in seconds
+let oneDayTime = timeInSec % dayInSec; // in seconds
 
 // converting time to hours then taking the int part of it is the hour
 let hour = Math.floor(oneDayTime / 3600); // 60*60 = 3600
@@ -22,6 +22,9 @@ let second = oneDayTime % 60;
 
 // millis is the leftover of the time in millis before conversion to seconds
 let milli = timeInMs % 1000;
+
+// let's calculate days
+
 
 function displayTime(){
   let h = hour < 10 ? "0" + hour : hour;
