@@ -27,7 +27,7 @@ and we finish. but wait, that's not exponent times, that's 'exponent-1' times!
 and we can see that each time we finish an addition, we take the result and use
 it as a new base each time. we call it a 'term' in an expression. here updating.
 */
-let base = 2;
+let base = 3;
 let exponent = 4;
 
 const power = (base, exponent = base)=> {
@@ -40,6 +40,8 @@ const power = (base, exponent = base)=> {
 
   // the whole thing is exponent-1 times
   for(let i = 0; i < exponent-1; i++){
+    // reset the result each time before you go on
+    result = 0;
 
     // each term calculation is base times
     for(let j = 0; j < base; j++)
@@ -50,3 +52,4 @@ const power = (base, exponent = base)=> {
   }
   return result;
 }
+console.log(power(base, exponent));
