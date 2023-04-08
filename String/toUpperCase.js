@@ -11,7 +11,7 @@ function toUpperCase(str){
   for(let i = 0;i < len; i++){
     let ch = str[i];
 
-    // check if the character is upper case, then make it lower case
+    // check if the character is lower case, then make it upper case
     if(ch >= "a" && ch <= "z"){
       switch(ch){
         case "a": ch = "A"; break;
