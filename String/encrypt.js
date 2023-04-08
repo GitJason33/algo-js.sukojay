@@ -3,7 +3,7 @@
 
 /*
  * I will try to encrypt a text using a randomizer method that gives a random number 
- * to increment or decrement by it. these numbers are represented as: 
+ * to increment by it. these numbers are represented as: 
  * -> 0 is the actual character
  * -> negative goes backwards in ascii code (won't use)
  * -> positive goes forward in ascii code
@@ -18,11 +18,6 @@ let encrypted = encrypt(text);
 
 console.log(security);
 console.log(encrypted);
-
-// test randomizer and ascii code
-// console.log(Math.floor(Math.random() * 1001) + 50)
-// console.log(text.charCodeAt(0));
-// console.log(String.fromCharCode(156,122,87));
 
 function encrypt(text){
   let len = text.length;
