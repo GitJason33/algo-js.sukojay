@@ -12,16 +12,18 @@
  * that represents the go into a character using ascii encoding
  */
 
-let text = "Sukojay";
-let security = ""; // puts the numbers
-let encrypted = encrypt(text);
+let important = {
+  text: "Sukojay",
+  security: "" // puts the random numbers
+}
+console.log("text initially: " + important['text']);
 
-console.log(security);
-console.log(encrypted);
+encrypt(important);
+console.log("text encrypted: " + important['text']);
 
-function encrypt(text){
-  let len = text.length;
-  if(len === 0) return '';
+function encrypt(toEncrypt){
+  let len = toEncrypt['text'].length;
+  if(len === 0) return;
   let result = "";
 
   for(let i = 0; i < len; i++){
@@ -29,13 +31,13 @@ function encrypt(text){
     let rand = Math.floor(Math.random() * 1000) + 1; 
     
     // take the ascii code of the character and add the random to it
-    let ch = rand + text.charCodeAt(i);
+    let ch = rand + toEncrypt['text'].charCodeAt(i);
 
     // add the encrypted character in result
     result += String.fromCharCode(ch);
 
     // add that number for decryption
-    security += rand + " ";
+    toEncrypt['security'] += rand + " ";
   }
-  return result;
+  toEncrypt['text'] = result;
 }
