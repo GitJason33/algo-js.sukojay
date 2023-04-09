@@ -3,7 +3,8 @@
 
 let num = 5;
 // console.log(triangle(5));
-console.log(reverseTriangle(5));
+// console.log(reverseTriangle(5));
+console.log(mixedTriangle(5));
 
 /* rectangular triangle
         *
@@ -54,6 +55,33 @@ function reverseTriangle(num, symbol = "*"){
       output += symbol + " ";
 
     output+= "\n";
+  }
+  return output;
+}
+
+/* mixed rectangular triangle 
+* * * * *
+  * * * *
+    * * *
+      * *
+        *
+      * *
+    * * *
+  * * * *
+* * * * *       */
+function mixedTriangle(num, symbol = "*"){
+  // very similar to the make of level-1 mixed version, but using the above ones
+  let output = reverseTriangle(num, symbol);
+
+  // now draw the other triangle using the triangle() code, starting from row 2 not 1
+  for(let row = 2; row <= num; row++){
+    for(let spaces = num; spaces > row; spaces--)
+      output += "  ";
+
+    for(let stars = 1; stars <= row; stars++)
+      output += symbol + " ";
+
+    output += "\n";
   }
   return output;
 }
