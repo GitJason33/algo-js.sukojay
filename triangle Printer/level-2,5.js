@@ -1,9 +1,11 @@
 // goal is to draw other types of triangles, and form shapes using triangles
 // difficulty: medium, medium +
 
-let n = 3;
+let n = 5;
 // console.log(isoTriangle(n));
-console.log(mixedIsoTriangle(n));
+// console.log(reverseIsoTriangle(n));
+// console.log(mixedIsoTriangle(n));
+console.log(rhomboid(n));
 
 /* isocel triangle
     *
@@ -23,6 +25,26 @@ function isoTriangle(num, symbol = "*"){
       output += symbol + " ";
 
     output += "\n";
+  }
+  return output;
+}
+/* reverse isocel triangle
+* * * * *
+ * * * *
+  * * *
+   * *
+    *       */
+function reverseIsoTriangle(num, symbol = "*"){
+  let output = "";
+
+  for(let row = 1; row <= num; row++){
+    for(let spaces = 1; spaces < row; spaces++)
+      output += " ";
+    
+    for(let stars = row; stars <= num; stars++)
+      output += symbol + " ";
+
+    output+= "\n";
   }
   return output;
 }
@@ -51,5 +73,31 @@ function mixedIsoTriangle(num, symbol = "*"){
   }
   // finally draw the isoTriangle
   output += isoTriangle(num, symbol);
+  return output;
+}
+
+/* rhomboid shape
+    *
+   * *
+  * * *
+ * * * *
+* * * * *
+ * * * *
+  * * *
+   * *
+    *         */
+function rhomboid(num, symbol = "*"){
+  let output = isoTriangle(num, symbol);
+
+  // draw a reverse isocel triangle starting from row 2
+  for(let row = 2; row <= num; row++){
+    for(let spaces = 1; spaces < row; spaces++)
+      output += " ";
+    
+    for(let stars = row; stars <= num; stars++)
+      output += symbol + " ";
+
+    output+= "\n";
+  }
   return output;
 }
