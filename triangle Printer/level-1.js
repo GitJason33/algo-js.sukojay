@@ -34,12 +34,12 @@ function triangle(num, symbol = "*"){
 * *
 *       */
 function reverseTriangle(num, symbol = "*"){
-  // this time, a row starts with the biggest number, descending
+  // this time, symbols goes descending while rows go on
   let output = "";
   
-  for(let row = num; row >= 1; row--){
-    // stars decrease depending on which row we are on
-    for(let stars = 1; stars <= row; stars++)
+  for(let row = 1; row <= num; row++){
+    // stars decrease depending on the row we are on
+    for(let stars = row; stars <= num; stars++)
       output += symbol + " ";
     
     // jump 1 line after finishing 1 row
@@ -59,10 +59,10 @@ function reverseTriangle(num, symbol = "*"){
 * * * *
 * * * * *       */
 function mixedTriangle(num, symbol = "*"){
-  let output = "";
-  output += reverseTriangle(num, symbol);
+  // draw the reverse one first
+  let output = reverseTriangle(num, symbol);
 
-  // now draw the non reverse one, but start from row 2 not 1 to avoid redundunt 1-star at middle
+  // now same as triangle() but start from row 2 not 1 to avoid redundunt 1-star at middle
   for(let row = 2; row <= num; row++){
     for(let stars = 1; stars <= row; stars++)
       output += symbol + " ";
