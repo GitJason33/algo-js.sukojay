@@ -1,43 +1,79 @@
-// goal here is to draw even harder shapes which are: infinity-like symbol with triangles
-// difficulty: challenging
+// goal here is to draw even harder shapes which are: infinity-like symbol with crowns
+// difficulty: challenging (left: easy, right: medium)
 
-let n = 5; 
-console.log(leftTriangle(n));
-console.log(rightTriangle(n));
+let n = 3; 
+console.log(crown(n));
+// console.log(reverseCrown(n));
 
 /* infinity like symbol - let's divide the problem into smaller steps
-*               *
-* *           * *
-* * *       * * *
-* * * *   * * * *
-* * * * * * * * *
-* * * *   * * * *
-* * *       * * *
-* *           * * 
-*               *
+*                   *
+* *               * *
+* * *           * * *
+* * * *       * * * *
+* * * * *   * * * * *
+* * * * * * * * * * *
 */
+// let's draw each part as a crown
+// first, notice that we draw stars, then spaces, then stars again in a mirror way?
+// confusing enough, the spaces are counted: rightSpaces + leftSpaces - 1: middle 1 is an intersection
+function crown(num, symbol = "*"){
+  let output = "";
 
-// let's draw the triangles of that infinity-like
-// this triangle resembles to a mix of level-1 versions
-import * as Level_1 from "./level-1.js";
+  // equation of spaces amount
+  let spaceCount = (num - 1)*4 - 1;
 
-function leftTriangle(num, symbol = "*"){
-  let output = Level_1.triangle(num, symbol);
+  // row by row
+  for(let row = 1; row <= num; row++){
+    // first side stars: based on level-1
+    for(let stars = 1; stars <= row; stars++)
+      output += symbol + " ";
 
-  // start from row 2 with reverse triangle
-  output += Level_1.reverseTriangle(num - 1, symbol);
+    // spaces are calculated using the equation above and times 2 again to add all needed spaces
+    for(let spaces = 1; spaces < spaceCount; spaces++)
+      output += " ";
 
-  return output;
+    // now draw the second side stars, same as the first side ones
+    for(let stars = 1; stars <= row; stars++)
+      output += symbol + " ";
+
+    // jump 1 line to continue
+    output += "\n";
+
+    // remove 4 spaces off space count each row you visit (2 for each triangle)
+    spaceCount -= 4;
+  }
+  // at the last line, 1 extra star is printed. just slice the result without it (3 charcters "* \n")
+  return output.slice(0, output.length - 3);
 }
 
-// this time, the mirrored triangle resembles to a mix of level-2 triangles
-import * as Level_2 from "./level-2.js";
+/* 
+* * * * * * * * * * *
+* * * * *   * * * * *
+* * * *       * * * *
+* * *           * * *
+* *               * *
+*                   *
+*/
+function reverseCrown(num, symbol = "*"){
 
-function rightTriangle(num, symbol){
-  let output = Level_2.triangle(num, symbol);
+}
 
-  // start from row 2 with reverse triangle
-  output += Level_2.reverseTriangle(num - 1, symbol);
+/* infinity like symbol
+*                   *
+* *               * *
+* * *           * * *
+* * * *       * * * *
+* * * * *   * * * * *
+* * * * * * * * * * *
+* * * * *   * * * * *
+* * * *       * * * *
+* * *           * * *
+* *               * *
+*                   *
+*/
+function infinity(num, symbol = "*"){
+  let output = crown(num, symbol);
 
-  return output;
+  // first, we are working on double the rows-1. but notice that the shape resembles to a crown as well
+  // for(let row = 1; row <)
 }
