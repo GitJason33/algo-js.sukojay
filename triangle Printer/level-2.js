@@ -4,7 +4,7 @@
 let num = 5;
 // console.log(triangle(5));
 // console.log(reverseTriangle(5));
-console.log(mixedTriangle(5));
+// console.log(mixedTriangle(5));
 
 /* rectangular triangle
         *

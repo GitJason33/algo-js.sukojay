@@ -5,7 +5,7 @@ let n = 5;
 // console.log(isoTriangle(n));
 // console.log(reverseIsoTriangle(n));
 // console.log(mixedIsoTriangle(n));
-console.log(rhomboid(n));
+// console.log(rhomboid(n));
 
 /* isocel triangle
     *

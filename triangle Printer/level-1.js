@@ -4,7 +4,7 @@
 let n = 7;
 // console.log(triangle(n));
 // console.log(reverseTriangle(n, "#"));
-console.log(mixedTriangle(n))
+// console.log(mixedTriangle(n));
 
 /* rectangular triangle
 *
