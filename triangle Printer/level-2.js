@@ -74,10 +74,16 @@ function mixedTriangle(num, symbol = "*"){
   let output = reverseTriangle(num, symbol);
 
   // now draw the other triangle using the triangle() code, starting from row 2 not 1
-  output += triangle(num, symbol);
+  for(let row = 2; row <= num; row++){
+    for(let spaces = num; spaces > row; spaces--)
+      output += "  ";
 
+    for(let stars = 1; stars <= row; stars++)
+      output += symbol + " ";
+
+    output += "\n";
+  }
   return output;
 }
-
 
 export { triangle, reverseTriangle };

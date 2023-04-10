@@ -63,8 +63,12 @@ function mixedTriangle(num, symbol = "*"){
   let output = reverseTriangle(num, symbol);
 
   // now same as triangle() but start from row 2 not 1 to avoid redundunt 1-star at middle
-  output += triangle(num - 1, symbol);
-
+  for(let row = 2; row <= num; row++){
+    for(let stars = 1; stars <= row; stars++)
+      output += symbol + " ";
+    
+    output += '\n';
+  } 
   return output;
 }
 

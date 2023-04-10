@@ -90,8 +90,15 @@ function rhomboid(num, symbol = "*"){
   let output = isoTriangle(num, symbol);
 
   // draw a reverse isocel triangle starting from row 2
-  output += reverseIsoTriangle(num, symbol);
+  for(let row = 2; row <= num; row++){
+    for(let spaces = 1; spaces < row; spaces++)
+      output += " ";
+    
+    for(let stars = row; stars <= num; stars++)
+      output += symbol + " ";
 
+    output+= "\n";
+  }
   return output;
 }
 
